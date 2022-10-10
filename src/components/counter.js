@@ -7,9 +7,11 @@ function counter() {
 
   useEffect(() => {
     console.log("component mount edildi!");
-    setInterval(() => {
+    const interval = setInterval(() => {
       setNumber((n) => n + 1);
     }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
